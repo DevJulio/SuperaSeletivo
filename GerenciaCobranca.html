@@ -1,0 +1,50 @@
+<sk-application ng-controller="GerenciaCobrancaController as ctrl">
+    <sk-sidenav class="sk-sidenav-left shadowpanel" is-open="true" child-layout="column">
+        <sk-vbox style=" align-self: start;  border-color: #f0f0f0; border: #f0f0f0;border-style: solid; ">
+            <span style="background-color: #f0f0f0 ; "> Filtros </span>
+            <span style="font-weight: bold;"> Parceiros </span>
+            <sk-pesquisa-input sk-value="ctrl.codParc" sk-entity-name="Parceiro" sk-field-name="CODPARC">
+            </sk-pesquisa-input>
+            <span style="font-weight: bold;"> Vencimento </span>
+
+            <sk-vbox style="flex-direction: row;">
+                <sk-date-input sk-value="ctrl.vencIni">
+                </sk-date-input>
+                <span> até </span>
+                <sk-date-input sk-value="ctrl.vencFinal">
+                </sk-date-input>
+            </sk-vbox>
+
+
+
+            <sk-checkbox ng-model="ctrl.somentePrevVenc">
+                <span> Somente com previsão vencida? </span>
+            </sk-checkbox>
+
+            <button default-class="classeDoBotao"
+                ng-click="ctrl.HandleBtn()"
+                style="background-color: #f0f0f0 ;">
+                <span> Aplicar </span>
+            </button>
+            <!-- Componentes que compõem a vbox -->
+        </sk-vbox>
+        <sk-dataset sk-dataset-created="ctrl.onDataSetCreated(dataset)" sk-standalone>
+            <sk-dsfield-md name="NOMEPARC" description="Parceiro"></sk-dsfield-md>
+            <sk-dsfield-md name="RAZAOSOCIAL" description="Razão Social"></sk-dsfield-md>
+            <sk-dsfield-md name="CNPJCPF" description="CNPJ/CPF"></sk-dsfield-md>
+            <sk-dsfield-md name="TOTAL" description="Total"></sk-dsfield-md>
+            <sk-dsfield-md name="CARTORIO" description="Total Desp. Cartório"></sk-dsfield-md>
+            <sk-dsfield-md name="DESDOBRAMENTO" description="Desdobramento"></sk-dsfield-md>
+            <sk-dsfield-md name="JUROSEMBU" description="Juros Embutido"></sk-dsfield-md>
+            <sk-dsfield-md name="MULTAEMBU" description="Multas Embutida"></sk-dsfield-md>
+            <sk-dsfield-md name="QTDTITULO" description="Qtd. Titulos"></sk-dsfield-md>
+            <sk-dsfield-md name="PROXCHAMADA" description="Próxima Chamada"></sk-dsfield-md>
+            <sk-dsfield-md name="PRIMEIROVCTO" description="Primeira Vcto"></sk-dsfield-md>
+            <sk-dsfield-md name="ULTIMOVCTO" description="Ultimo Vcto"></sk-dsfield-md>
+      
+
+        </sk-dataset>
+
+    </sk-sidenav>
+
+</sk-application>
